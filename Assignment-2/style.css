@@ -1,0 +1,46 @@
+*{
+    background-color: aliceblue;
+}
+.container1{
+    display: flex;
+    justify-content: center;
+}
+.heading{
+    margin: 0;
+    background-color: #00005f;
+    color: #FFF;
+    border: 2px solid black;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;   
+}
+
+
+dl > div {
+    padding: 24px 0 0 0;
+  }
+  
+  dt {
+    background: #00005f;
+    color: #FFF;
+    font: bold 18px/21px Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 10px 0 10px 12px;
+    position: sticky;
+    top: -1px;
+  }
+  
+  dd {
+    font: bold 20px/45px Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 12px 0 0 12px;
+    white-space: nowrap;
+  }
+
+  dd::after{
+      content: "\1F57F";
+  }
+  
+  dd + dd {
+    border-top: 5px solid lightblue;
+  }
