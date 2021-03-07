@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#navigation-bar {
+  background-color: #333;
+  font-size: 1.7rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 50px;
+  max-width: 100vw;
+  margin: 5px;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+li{
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+}
+li:hover{
+    background-color: rgb(104, 102, 102);
+}
+a{
+    
+    text-decoration: none;
+    color: white;
+}
+
+#coverimage{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    max-width: 100vw;
+    height: 300px;
+    background-image: url("https://images.unsplash.com/photo-1614687345016-9183348d8f35?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8NnNNVmpUTFNrZVF8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    background-size: 100% 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation-name: cover;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+}
+
+#cards{
+    max-width: 100vw;
+    height: fit-content;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #333;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 350px;
+    height: 280px;
+    display: flex;
+    margin: 5px;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+    perspective: 800px;
+    border-radius: 3%;
+}
+.card div{
+    width: 350px;
+    height: 230px;
+    transition: 1s;
+    transform-style: preserve-3d;
+}
+
+.card img{
+    position: absolute;
+    width: 350px;
+    height: 240px;
+    z-index: 1;
+    backface-visibility: hidden;
+    border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
+}
+
+.card p{
+    position: absolute;
+    width: 320px;
+    margin-top: 30px;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;    
+}
+
+.card div:hover{
+    transform: rotateY(180deg);
+    cursor: pointer;
+}
+
+.card button{
+    margin-top: 20px;
+    width: 70px;
+    height: 25px;
+    font-size: 1.1rem;
+}
+
+footer{
+    margin: 5px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: larger;
+}
+
+
+@keyframes cover{
+    12.5%{
+        background-image: url("https://images.unsplash.com/photo-1614679967638-fe153775eff6?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDh8NnNNVmpUTFNrZVF8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    }
+    25%{
+        background-image: url("https://images.unsplash.com/photo-1613124214144-3c34ae7bf426?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDE3fDZzTVZqVExTa2VRfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    }
+    37.5%{
+        background-image: url("https://images.unsplash.com/photo-1614660086475-58cbb5980288?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDI0fDZzTVZqVExTa2VRfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    }
+    50%{
+        background-image: url("https://images.unsplash.com/photo-1614829569145-527b2736cc91?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8cm5TS0RId3dZVWt8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    }
+    62.5%{
+        background-image: url("https://images.unsplash.com/photo-1556760614-c7fd2fdca52f?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8X2hiLWRsNFEtNFV8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    }
+    75%{
+        background-image: url("https://images.unsplash.com/photo-1614823498916-a28a7d67182c?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8Ym84alFLVGFFMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    }
+    87.5%{
+        background-image: url("https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8X2hiLWRsNFEtNFV8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    }
+    100%{
+        background-image: url("https://images.unsplash.com/photo-1614858335969-b05a35df2ab1?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8cm5TS0RId3dZVWt8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    }
+}
+
+@media screen and (max-width: 500px){
+    #navigation-bar, ul{
+        flex-direction: column;
+        align-items: center;
+    }
+    li{
+        margin-top: 15px;
+    }
+
+    #cards{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
