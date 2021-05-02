@@ -1,0 +1,22 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %> 
+
+<div>
+    <%for(item of blogs){%>
+          <div class="card" style="width: 80vw; margin: 10px auto;">
+            <div class="card-body">
+              <h3 class="card-title"><%=item.blogName%></h3>
+              <h4 class="card-subtitle mb-2 text-muted"><%=item.createdOn.toDateString()%> by <%=item.author%></h4>
+              <p class="card-text"><%=item.content%></p>
+              <div class="d-flex">
+              <a href="/blogs/<%=item._id%>" class="btn btn-info">View</a>
+              </div>
+            </div>
+          </div>
+    <%}%>
+    <%if(blogs.length === 0){%>
+      <h2 class="text-center m-4">No Blogs Yet....</h2>
+    <%}%>
+</div>
+
+<%- include("../partials/footer") %>

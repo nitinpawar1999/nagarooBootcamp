@@ -1,0 +1,59 @@
+<%- include("../partials/header")%> <%- include("../partials/navbar")%>
+<div class="container-fluid d-flex">
+  <div class="border m-4 p-4 mx-auto" style="width: 50vw">
+    <h3>Edit Blog</h3>
+    <label class="form-label">Created on : <%=blog.createdOn.toDateString()%></label>
+    <hr />
+    <form action="/blogs/<%=blog._id%>?_method=PATCH" method="POST" class="row needs-validation" novalidate>
+      <div class="row-md-4">
+        <label for="validationCustom01" class="form-label">Blog Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          name="blog[blogName]"
+          value="<%=blog.blogName%>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="row-md-4">
+        <label for="validationCustom02" class="form-label">Author</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom02"
+          name="blog[author]"
+          value="<%=blog.author%>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="row-md-4">
+        <label for="validationCustomUsername" class="form-label">Content</label>
+        <div class="input-group has-validation">
+          <textarea
+            cols="10"
+            rows="10"
+            type="text"
+            class="form-control"
+            id="validationCustomUsername"
+            name="blog[content]"
+            required
+          ><%=blog.content%></textarea>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+      </div>
+      <input type="text" hidden name="blog[createdOn]" value="<%=blog.createdOn%>">
+      <div class="col-12 mt-4 mb-6">
+        <button class="btn btn-primary" type="submit">Edit Blog</button>
+      </div>
+    </form>
+  </div>
+  <div class="overflow-auto border m-4 p-4" style="width: 50vw; height: 80vh;">
+    <h1 class="text-center">Comments</h1>
+    
+  </div>
+</div>
+
+<%- include("../partials/footer")%>

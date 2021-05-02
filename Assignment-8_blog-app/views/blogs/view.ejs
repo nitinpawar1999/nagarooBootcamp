@@ -1,0 +1,79 @@
+<%- include("../partials/header")%> <%- include("../partials/navbar")%>
+<div class="container-fluid d-flex">
+  <div class="overflow-auto border m-4 p-4" style="width: 50vw; height: 80vh;">
+    <article class="blog-post">
+        <h2 class="blog-post-title"><%=blog.blogName%></h2>
+        <hr>
+        <p class="blog-post-meta"><%=blog.createdOn.toDateString()%> by <%=blog.author%></p>
+
+        <p><%=blog.content%></p>
+        
+      </article>
+      <div class="d-flex">
+        <a href="/blogs/<%=blog._id%>/edit" class="btn btn-warning mt-2 mb-2">Edit</a>
+        <form action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-danger m-2" >Delete</button>
+        </form>
+        </div>  
+  </div>
+  <div class="overflow-auto border m-4 p-4" style="width: 50vw; height: 80vh;">
+      <h1 class="text-center">Comments</h1>
+      <div class="border m-2 p-4 mx-auto" >
+        <h6>Add New Comment</h6>
+        <hr />
+        <form action="/blogs/<%=blog._id%>/comment" method="POST" class="row needs-validation" novalidate>
+          <div class="row-md-4">
+            <label for="validationCustomUsername" class="form-label">Comment</label>
+            <div class="input-group has-validation">
+              <textarea
+                cols="2"
+                rows="2"
+                type="text"
+                class="form-control"
+                id="validationCustomUsername"
+                name="comment[comment]"
+                placeholder="Enter Comment Here..."
+                required
+              ></textarea>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+          </div>
+    
+    <div class="row g-3 mt-2">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              name="comment[username]"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+
+          <div class="col">
+            <button class="btn btn-primary" type="submit">Submit Comment</button>
+          </div>
+        </div>
+        </form>
+      </div>
+      <h3>All Comments</h3>
+      <hr>
+      
+      <div>
+        <%for(comment of blog.comments){%>
+          <div class="d-flex flex-row card mt-2" style="width: 100%;">
+            <div class="card-body">
+              <h5 class="card-title"><%=comment.comment%></h5>
+              <h6 class="card-subtitle mb-2 text-muted">By: <%=comment.username%></h6>
+            </div>
+            <form action="/comment/<%=comment._id%>?_method=DELETE" method="POST" class="m-4">
+              <input type="text" hidden name="blogId" value="<%=blog._id%>">
+              <button type="submit" class="btn btn-danger m-2" >Delete</button>
+            </form>
+          </div>
+        <%}%>
+      </div>
+    </div>
+</div>
+<%- include("../partials/footer")%>

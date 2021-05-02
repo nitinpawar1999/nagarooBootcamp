@@ -1,0 +1,54 @@
+<%- include("../partials/header")%> <%- include("../partials/navbar")%>
+<div class="container-fluid">
+  <div class="border m-4 p-4 mx-auto" style="width: 50vw">
+    <h3>Add New Blog</h3>
+    <hr />
+    <form action="/blogs" method="POST" class="row needs-validation" novalidate>
+      <div class="row-md-4">
+        <label for="validationCustom01" class="form-label">Blog Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          name="blog[blogName]"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="row-md-4">
+        <label for="validationCustom02" class="form-label">Author</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom02"
+          name="blog[author]"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="row-md-4">
+        <label for="validationCustomUsername" class="form-label">Content</label>
+        <div class="input-group has-validation">
+          <textarea
+            cols="10"
+            rows="10"
+            type="text"
+            class="form-control"
+            id="validationCustomUsername"
+            name="blog[content]"
+            required
+          ></textarea>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+      </div>
+
+
+      <div class="col-12 mt-4 mb-4">
+        <button class="btn btn-primary" type="submit">Submit Blog</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<%- include("../partials/footer")%>
