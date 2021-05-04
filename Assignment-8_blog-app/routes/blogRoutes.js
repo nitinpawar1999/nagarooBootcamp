@@ -70,6 +70,7 @@ router.patch("/blogs/:id", async(req, res) => {
 router.delete("/blogs/:id", async(req, res) =>{
     try {
         await Blog.findByIdAndDelete(req.params.id);
+        req.flash("success", "Blog Deleted Successfully");
         res.redirect("/blogs");
     } catch(e) {
         console.log(e);
@@ -89,7 +90,7 @@ router.post("/blogs/:id/comment", async(req, res) => {
     
         await comment.save();
         await blog.save();
-    
+        req.flash("success", "Comment Added Successfully");
         res.redirect(`/blogs/${req.params.id}`);
     } catch(e){
         console.log(e);
@@ -105,8 +106,8 @@ router.delete("/comment/:id", async(req, res) => {
         await Comment.findByIdAndDelete(req.params.id);
         const blog = await Blog.findById(req.body.blogId);
         blog.comments.remove(req.params.id);
-    
         await blog.save();
+        req.flash("success", "Comment deleted Successfully");
         res.redirect(`/blogs/${req.body.blogId}`);
     } catch(e) {
         console.log(e);
