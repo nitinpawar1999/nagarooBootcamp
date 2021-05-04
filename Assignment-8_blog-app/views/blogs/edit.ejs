@@ -1,6 +1,6 @@
 <%- include("../partials/header")%> <%- include("../partials/navbar")%>
-<div class="container-fluid d-flex">
-  <div class="border m-4 p-4 mx-auto" style="width: 50vw">
+<div class="container-fluid d-flex flex-lg-row flex-column align-items-center">
+  <div class="container-lg border m-4 p-4 mx-auto">
     <h3>Edit Blog</h3>
     <label class="form-label">Created on : <%=blog.createdOn.toDateString()%></label>
     <hr />
@@ -50,9 +50,26 @@
       </div>
     </form>
   </div>
-  <div class="overflow-auto border m-4 p-4" style="width: 50vw; height: 80vh;">
-    <h1 class="text-center">Comments</h1>
-    
+  <div class="container-lg overflow-auto border m-4 p-4 align-self-lg-start ">
+    <h3 class="text-center">All Comments</h3>
+      <hr>
+      <%if(blog.comments.length === 0){%>
+        <h3 class="text-center">No Comments Yet</h3>
+      <%}else{%>
+      <div>
+        <%for(comment of blog.comments){%>
+          <div class="d-flex flex-row card mt-2" style="width: 100%;">
+            <div class="card-body">
+              <h5 class="card-title"><%=comment.comment%></h5>
+              <h6 class="card-subtitle mb-2 text-muted">By: <%=comment.username%></h6>
+            </div>
+            <form action="/comment/<%=comment._id%>?_method=DELETE" method="POST" class="m-4">
+              <input type="text" hidden name="blogId" value="<%=blog._id%>">
+              <button type="submit" class="btn btn-danger m-2" >Delete</button>
+            </form>
+          </div>
+        <%}}%>
+      </div>
   </div>
 </div>
 

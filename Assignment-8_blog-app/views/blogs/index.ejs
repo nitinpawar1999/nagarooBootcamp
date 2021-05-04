@@ -7,7 +7,7 @@
             <div class="card-body">
               <h3 class="card-title"><%=item.blogName%></h3>
               <h4 class="card-subtitle mb-2 text-muted"><%=item.createdOn.toDateString()%> by <%=item.author%></h4>
-              <p class="card-text"><%=item.content%></p>
+              <p class="card-text"><%=item.content.substring(0,200)%><a href="/blogs/<%=item._id%>" style="text-decoration: none;">... Read More</a></p>
               <div class="d-flex">
               <a href="/blogs/<%=item._id%>" class="btn btn-info">View</a>
               </div>
